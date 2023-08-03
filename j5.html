@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Traversal</title>
+    <style>
+        /*Style Goes Here*/
+        .ancestors * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body class="ancestors">body (great-great-grandparent)
+    <div style="width:500px;">div (great-grandparent)
+        <ul>ul (grandparent)
+            <li>li (direct parent)
+                <span>span</span>
+                <span class="child2">span</span>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="parent">
+        <h1>Hello</h1>
+        <h2>hwllo</h2>
+        <h3>hello</h3>
+        <h4>Hello</h4>
+        <h5>Hello</h5>
+    </div>
+    <p>My name is Donald.</p>
+    <p class="intro">I live in Duckburg.</p>
+    <p class="intro">I love Duckburg.</p>
+    <p>My best friend is Mickey.</p>
+
+    
+
+    <!--Javacript and Jquery below...-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Write js and jquery here
+            $("span").parents().css({ "color": "red", "border": "2px solid red" });
+            $('span').parentsUntil("div").css("border","2px solid blue");
+            $('div').children().css("border","2px solid green");
+            $('div').children('.child2').css("border","2px solid yellow");
+            $('div').find('span').css("border","2px solid red");
+        });
+
+        $(document).ready(function () {
+            //Write js and jquery here
+            $("h2").next().css("border","2px solid red");
+            $("h2").siblings().css("border","2px solid green");
+             $("p").filter(".intro").css("background-color", "yellow");
+          });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Part 2</title>
+</head>
+<h1>This is the tutorial for Jquery Event methods</h1>
+<p class="click">This will work on .click event</p>
+<p class="dblclick">This will work on .dblclick event</p>
+<p class="mouseenter">This will work on .mouseenter event</p>
+<p class="mouseleave">This will work on .mouseleave event</p>
+<p class="mousedown">This will work on .mousedown event</p>
+<p class="mouseup">This will work on .mouseup event</p>
+<p class="hover">This will work on .hover event</p>
+<p>This is focus event</p><input type="text" class="focus"><br>
+<p>This is blur event</p><input type="text" class="blur">
+<p>This is keydown event</p><input type="text" class="keydown"><br>
+<p>This is keyup event</p><input type="text" class="keyup"><br>
+<p>This is keypress event</p><input type="text" class="keypress">
+<p class="press">Presses : <span class="count">0</span></p><br>
+<p class="scroll">The scrolled time is : <span class="sc_count">0</span></p>
+<p class="resize">The resize time is : <span class="rs_count">0</span></p>
+
+<body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //The code goes here
+            $(".click").click(function () {
+              console.log("This is fired on click event");
+            });
+          
+            $(".dblclick").dblclick(function () {
+              console.log("This will fire after double click event");
+            });
+          
+            $(".mouseenter").mouseenter(function () {
+              console.log("This will fire after Mouse enter event");
+            });
+          
+            $(".mouseleave").mouseenter(function () {
+              console.log("This will fire after Mouse leave event");
+            });
+          
+            $(".mousedown").mousedown(function () {
+              console.log("This will fire after Mouse down event");
+            });
+          
+            $(".mouseup").mouseup(function () {
+              console.log("This will fire after Mouse up event");
+            });
+          
+            $(".hover").hover(function () {
+              console.log("This will fire after .hover event");
+            });
+          
+            $(".focus").focus(function () {
+              $(this).css("background-color", "yellow");
+            });
+          
+            $(".blur").blur(function () {
+              $(this).css("background-color", "yellow");
+            });
+          
+            $(".keydown").keydown(function () {
+              $(this).css("background-color", "yellow");
+            });
+          
+            $(".keyup").keyup(function () {
+              $(this).css("background-color", "pink");
+            });
+              i = 0;
+               $(".keypress").keypress(function () {
+                   $('.count').text(i+=1);
+               });
+              j = 0;
+              $(document).scroll(function () {
+                $(".sc_count").text((j += 1));
+              });
+          
+              k = 0;
+              $(window).resize(function () {
+                $(".rs_count").text((k += 1));
+              });
+          });
+          
+    </script>
+</body>
+
+</html>
